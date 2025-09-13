@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .churn {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 2px solid #ef5350;
+        }
+        .no-churn {
+            background-color: #e8f5e8;
+            color: #2e7d32;
+            border: 2px solid #66bb6a;
+        }
+        .back-btn {
+            background-color: #2196F3;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .back-btn:hover {
+            background-color: #1976D2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔮 Prediction Results</h1>
+        
+        {% if "Will Churn" in prediction %}
+            <div class="result churn">
+                ⚠️ This customer is likely to CHURN
+            </div>
+            <p>Consider retention strategies like:</p>
+            <ul style="text-align: left; display: inline-block;">
+                <li>Special discounts or offers</li>
+                <li>Improved customer service</li>
+                <li>Contract renegotiation</li>
+                <li>Additional services bundle</li>
+            </ul>
+        {% else %}
+            <div class="result no-churn">
+                ✅ This customer is likely to STAY
+            </div>
+            <p>Great! This customer has a low churn probability.</p>
+            <p>Consider upselling opportunities or referral programs.</p>
+        {% endif %}
+        
+        <a href="/" class="back-btn">Make Another Prediction</a>
+    </div>
+</body>
+</html>
